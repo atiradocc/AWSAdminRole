@@ -1,0 +1,7 @@
+StackSetName: "AWSAdminRoleStackSet"
+DeploymentTargets:
+  OrganizationalUnitIds:
+  - ""
+OperationPreferences:
+  FailureTolerancePercentage: 100
+  MaxConcurrentPercentage: 100

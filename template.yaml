@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Created an Admin Role in the AWS Account
+Parameters:
+  UserARN:
+    Description: ARN of the user to grant admin role on your accounts
+    Type: String
+Resources:
+  iamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: "AWSAdminRole"
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref UserARN
+            Action:
+              - "sts:AssumeRole"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+Outputs:
+  RoleARN:
+    Description: Role ARN
+    Value: Fn::GetAtt [ iamRole, Arn ]

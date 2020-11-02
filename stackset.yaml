@@ -1,0 +1,13 @@
+StackSetName: 'AWSAdminRoleStackSet'
+Description: 'This stackset creates an IAM Role to grant Admin Rights on all accounts'
+TemplateBody: template.yaml
+Parameters:
+  - ParameterKey: "UserARN"
+    ParameterValue: ""
+    UsePreviousValue: true
+Capabilities:
+  - CAPABILITY_NAMED_IAM
+PermissionModel: SERVICE_MANAGED
+AutoDeployment:
+  Enabled: true
+  RetainStacksOnAccountRemoval: false
